@@ -1,0 +1,4 @@
+{
+  "Balance is not a valid number": "We cannot see the account balance, or it is not a number",
+  "Dropdown option not found": "Could not find option with text: '%s'"
+}

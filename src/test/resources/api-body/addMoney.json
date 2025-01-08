@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "path": "/api/v1/banking/transactions/topup",
+    "method": "POST"
+  },
+  "body": {
+    "card_number": "1234 1234 1234 1234",
+    "expire_at": "10/26",
+    "card_owner": "API Added",
+    "cvv": "110",
+    "client_id": "web",
+    "user_agent": "firefox",
+    "amount": 30000
+  }
+}
