@@ -2,6 +2,7 @@ package cl.testinium.pages;
 
 import cl.testinium.api.APIRequests;
 import cl.testinium.base.Driver;
+import cl.testinium.data.CurrentMoneyData;
 import cl.testinium.data.TransferData;
 import cl.testinium.utils.JsonReader;
 import com.gbursali.data.DataManager;
@@ -15,16 +16,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.function.Function;
 
 public class MoneyTransferPage {
     public static final DateTimeFormatter TRANSACTION_DATETIME_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
+    public double getSavedMoney(){
+        return DataManager.getFirst(CurrentMoneyData.class)
+                .map(x->x.money)
+                .orElseThrow();
+    }
     @FindBy(xpath = "//div[./div[text()='Amount']]//div[./following-sibling::*[name()='svg']]")
     public HTMLElement accountBalance;
 
@@ -58,6 +64,9 @@ public class MoneyTransferPage {
         var lastTransfer = DataManager.getFirst(TransferData.class)
                 .orElseThrow(() -> new RuntimeException(JsonReader.getExceptionMessage("No transfers found")));
         verifyTransfer(lastTransfer);
+        var expectedMoney = DecimalFormat.getInstance().format(getSavedMoney()-lastTransfer.amount);
+        var actualMoney = DecimalFormat.getInstance().format(getAccountBalance());
+        Assert.assertEquals(expectedMoney, actualMoney);
     }
 
     private void verifyTransfer(TransferData lastTransfer) {
