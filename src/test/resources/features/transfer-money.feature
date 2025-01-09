@@ -2,7 +2,8 @@
 Feature: Transfer money to another account
 
   Background: I have money in mny account
-    Given I opened up the Money Transfer page
+    Given I log in to the system
+    And I opened up the Money Transfer page
     And I have an account with a non-zero balance
 
   @positive @send-money
