@@ -47,6 +47,7 @@ public class Select extends HTMLElement {
 	public void select(String text) {
 		this.click();
 		this.getOption(text)
+				.map(x->x.waitFor.clickability())
 				.orElseThrow(() -> new NoSuchElementException(JsonReader.getExceptionMessage("Dropdown option not found").formatted(text)))
 				.click();
 	}
@@ -54,6 +55,7 @@ public class Select extends HTMLElement {
 	public void selectContains(String text) {
 		this.click();
 		this.getOptionContains(text)
+				.map(x->x.waitFor.clickability())
 				.orElseThrow(() -> new NoSuchElementException(JsonReader.getExceptionMessage("Dropdown option not found").formatted(text)))
 				.click();
 	}

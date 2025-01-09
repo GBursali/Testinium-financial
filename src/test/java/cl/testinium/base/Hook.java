@@ -1,8 +1,6 @@
 package cl.testinium.base;
 
 import cl.testinium.utils.JsonReader;
-import com.gbursali.data.DataManager;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -12,17 +10,9 @@ import org.awaitility.Awaitility;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.Duration;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Hook {
 	double startTime;

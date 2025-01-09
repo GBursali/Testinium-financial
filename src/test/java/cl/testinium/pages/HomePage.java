@@ -14,6 +14,6 @@ public class HomePage {
 		PageFactory.initElements(HTMLElement.getDecorator(Driver.getDriver()),this);
 	}
 	public void openMoneyTransferPage() {
-		openMoneyTransfer.click();
+		openMoneyTransfer.waitFor.clickability().click();
 	}
 }
