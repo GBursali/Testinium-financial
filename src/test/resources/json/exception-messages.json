@@ -1,4 +1,6 @@
 {
   "Balance is not a valid number": "We cannot see the account balance, or it is not a number",
-  "Dropdown option not found": "Could not find option with text: '%s'"
+  "Dropdown option not found": "Could not find option with text: '%s'",
+  "Cucumber table is not populated": "Cucumber table's data population is not valid.",
+  "No transfers found": "No transfers has been saved before, so expected values of this action is unknown"
 }
