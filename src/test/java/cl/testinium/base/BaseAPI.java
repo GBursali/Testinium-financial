@@ -1,5 +1,6 @@
 package cl.testinium.base;
 
+import cl.testinium.utils.AuthUtils;
 import cl.testinium.utils.JsonReader;
 import com.gbursali.endpoint.EndpointBase;
 import com.google.gson.JsonObject;
@@ -19,18 +20,11 @@ public class BaseAPI {
 				.withJsonBasePath(BASE_FILE_PATH);
 	}
 
-	public static JsonObject getAuthInfo() {
-		var jsonObject = new JsonObject();
-		jsonObject.addProperty("username", JsonReader.settings().get("username").getAsString());
-		jsonObject.addProperty("password", JsonReader.settings().get("password").getAsString());
-		return jsonObject;
-	}
-
 	public static String getApiKey() {
 		if (apiKey == null) {
 			apiKey = getBase()
 					.makeWithJson("auth.json")
-					.setBody(getAuthInfo().toString())
+					.setBody(AuthUtils.getAuthInfo().toString())
 					.send()
 					.jsonPath()
 					.getString("access_token");

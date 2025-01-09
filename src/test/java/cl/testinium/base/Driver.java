@@ -3,25 +3,18 @@ package cl.testinium.base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -103,6 +96,7 @@ public class Driver {
 		prefs.put("profile.default_content_settings_.popups",0);
 		prefs.put("download.prompt_for_download", "false");
 		prefs.put("profile.default_content_settings.popups", 0);
+//		options.setCapability(CapabilityType.UNHANDLED_PROMPT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
 		options.addArguments("--safebrowsing-disable-extension-blacklist");
 		options.addArguments("--safebrowsing-disable-download-protection");
 		options.addArguments("--start-maximized");
@@ -112,6 +106,5 @@ public class Driver {
 		options.addArguments("--disable-extensions");
 		options.addArguments("--allow-running-insecure-content");
 		options.setExperimentalOption("prefs", prefs);
-		options.setBrowserVersion("123.0.6312.122");
 	}
 }

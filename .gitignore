@@ -2,11 +2,11 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-**/src/test/resources/**/settings.json
+**/src/test/resources/**/credentials.json
 
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
+.idea/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/

@@ -17,13 +17,10 @@ import org.junit.runner.RunWith;
 				"json:target/cucumber.json",
 				"html:target/default-cucumber-reports"
 		},
-		tags ="",
+		tags ="@send-money",
 		features = {"src/test/resources/features"},
-		glue = {"cl/testinium/step_definitions"}
+		glue = {"cl/testinium/step_definitions","cl/testinium/base"}
 
 )
 public class CukesRunner {
-	public static void main(String[] args) {
-		APIRequests.topup();
-	}
 }

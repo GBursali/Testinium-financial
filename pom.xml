@@ -18,8 +18,12 @@
     </properties>
     <repositories>
         <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/GBursali/*</url>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>own-plugins</id>
+            <url>https://gbursali.com/maven-repo</url>
         </repository>
     </repositories>
     <dependencies>

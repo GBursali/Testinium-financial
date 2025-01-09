@@ -18,6 +18,9 @@ public class JsonReader {
 	public static JsonObject settings(){
 		return cache.computeIfAbsent("settings", key -> read("settings"));
 	}
+	public static JsonObject credentials(){
+		return cache.computeIfAbsent("credentials", key -> read("credentials"));
+	}
 	public static JsonObject exceptionMessages(){
 		return cache.computeIfAbsent("exception-messages", x->read("exception-messages"));
 	}
