@@ -1,7 +1,7 @@
 package cl.testinium.step_definitions;
 
 import cl.testinium.base.Pages;
-import cl.testinium.data.CurrentMoneyData;
+import cl.testinium.data.CurrentAccountData;
 import com.gbursali.data.DataManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -17,11 +17,12 @@ public class CommonStepDefinitions {
         Pages.Popups.MONEY_TRANSFER_POPUP.openPopup();
     }
 
-    @Given("save/update the current money")
+    @Given("save/update the current account details")
     public void saveMoney() {
-        var data = DataManager.getFirst(CurrentMoneyData.class)
-                .orElse(new CurrentMoneyData());
+        var data = DataManager.getFirst(CurrentAccountData.class)
+                .orElse(new CurrentAccountData());
         data.money = Pages.MONEY_TRANSFER_PAGE.getAccountBalance();
+        data.accountName = Pages.MONEY_TRANSFER_PAGE.getAccountName();
         data.save();
     }
 }

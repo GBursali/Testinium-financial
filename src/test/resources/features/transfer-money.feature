@@ -9,7 +9,7 @@ Feature: Transfer money to another account
 
   @positive @send_money @transfer_money_to_another_account
   Scenario: User sends money to another account
-    * save the current money
+    * save the current account details
     And I make the following transfer:
       | senderAccount | receiverAccount | amount |
       | Initial acc   | Testinium-2     | 3000   |
@@ -17,7 +17,7 @@ Feature: Transfer money to another account
 
   @send_money @try_big_amounts
   Scenario: User sends money to another account
-    * save the current money
+    * save the current account details
     And I make the following transfer:
       | senderAccount | receiverAccount | amount      |
       | Initial acc   | Testinium-2     | 99999999999 |
