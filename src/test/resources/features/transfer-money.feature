@@ -10,5 +10,6 @@ Feature: Transfer money to another account
   Scenario: User sends money to another account
     When I click on the Transfer Money button
     And I make the following transfer:
-    | senderAccount | receiverAccount | amount |
-    |Initial Acc    |Testinium-1      |3000    |
+      | senderAccount | receiverAccount | amount |
+      | Initial acc   | Testinium-2     | 3200   |
+    Then I verify the transaction is completed
