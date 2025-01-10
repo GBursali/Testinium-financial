@@ -1,6 +1,7 @@
 package cl.testinium.base;
 
 import cl.testinium.utils.JsonReader;
+import com.gbursali.data.DataManager;
 import com.google.gson.JsonObject;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -45,16 +46,17 @@ public class Hook {
 	}
 
 	@After
-	public void teardown(Scenario scenario){
-		if(scenario.isFailed()) {
+	public void teardown(Scenario scenario) {
+		if (scenario.isFailed()) {
 			takeScreenShot("SS before failure");
 		}
-		screenshots.forEach((name, image) -> {
-			scenario.attach(image, "image/png", name);
-		});
+		screenshots.forEach((name, image) ->
+				scenario.attach(image, "image/png", name)
+		);
 
 //		scenario.attach(dynamicIdentifiers,"text/plain","Dynamic Variables");
 		Driver.closeDriver();
+		DataManager.clear();
 		duration = (System.nanoTime() - startTime) / 1000000000;
 		LogManager.getLogger().info("Scenario {} in {} seconds",scenario.getStatus().name(),duration);
 	}

@@ -41,7 +41,7 @@ public class TransferMoneyPopup implements IPopupForm<TransferMoneyPopup> {
 		this.receiverAccount.select(transferData.receiverAccount);
 		this.amount.sendKeys(TextUtils.formatToText(transferData.amount));
 		this.sendButton.click();
-		Awaitility.await().pollDelay(Duration.ofSeconds(3)).until(()->true);
+		Awaitility.await().pollDelay(Duration.ofSeconds(1)).until(()->true);
 		transferData.sendingDate = LocalDateTime.now();
 		transferData.save();
 	}

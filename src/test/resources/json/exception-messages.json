@@ -4,6 +4,8 @@
   "Cucumber table is not populated": "Cucumber table's data population is not valid.",
   "No transfers found": "No transfers has been saved before, so expected values of this action is unknown",
   "Account information not saved": "Account information is not saved before, therefore you cannot extract account balance and/or name",
+  "Doesn't have attribute": "Given input doesn't have attribute: '%s'",
+  "Button should be disabled": "'%s' button should be disabled",
   "Element not found": "Given dynamic element is not found.",
   "Element found": "Given dynamic element is found. It shouldn't."
 

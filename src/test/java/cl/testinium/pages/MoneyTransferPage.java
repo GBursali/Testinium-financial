@@ -75,13 +75,13 @@ public class MoneyTransferPage {
         Assert.assertEquals(lastTransfer.receiverAccount, transaction.receiverAccount);
         //ignore seconds
         Assert.assertEquals(lastTransfer.sendingDate.withSecond(0).withNano(0), transaction.sendingDate.withSecond(0).withNano(0));
-        Assert.assertEquals(lastTransfer.amount, transaction.amount, 0);
+        Assert.assertEquals("Transfer's amount is not as expected",TextUtils.formatToText(lastTransfer.amount), TextUtils.formatToText(transaction.amount));
     }
 
     public void verifyMoney(double expectedEffect) {
         var expectedMoney = TextUtils.formatToText(getSavedMoney() + expectedEffect);
         var actualMoney = TextUtils.formatToText(getAccountBalance());
-        Assert.assertEquals(expectedMoney, actualMoney);
+        Assert.assertEquals("Current amount is not as expected",expectedMoney, actualMoney);
     }
 
     private TransferData extractTransaction(WebElement webElement) {

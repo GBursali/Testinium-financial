@@ -1,9 +1,7 @@
 package cl.testinium.utils.elements;
 
 import cl.testinium.utils.JsonReader;
-import com.gbursali.elements.Dropdown;
 import com.gbursali.elements.HTMLElement;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -11,7 +9,6 @@ import org.openqa.selenium.support.pagefactory.ByChained;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class Select extends HTMLElement {
@@ -48,7 +45,7 @@ public class Select extends HTMLElement {
 		this.click();
 		this.getOption(text)
 				.map(x->x.waitFor.clickability())
-				.orElseThrow(() -> new NoSuchElementException(JsonReader.getExceptionMessage("Dropdown option not found").formatted(text)))
+				.orElseThrow(() -> new NoSuchElementException(JsonReader.getExceptionMessage("Dropdown option not found",text)))
 				.click();
 	}
 
@@ -56,7 +53,7 @@ public class Select extends HTMLElement {
 		this.click();
 		this.getOptionContains(text)
 				.map(x->x.waitFor.clickability())
-				.orElseThrow(() -> new NoSuchElementException(JsonReader.getExceptionMessage("Dropdown option not found").formatted(text)))
+				.orElseThrow(() -> new NoSuchElementException(JsonReader.getExceptionMessage("Dropdown option not found",text)))
 				.click();
 	}
 

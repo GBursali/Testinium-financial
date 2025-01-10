@@ -13,8 +13,9 @@ public class Pages {
 	public static final LandingPage LANDING_PAGE = new LandingPage();
 	public static final TransferMoneyPopup MONEY_TRANSFER_POPUP = new TransferMoneyPopup();
 	public static final AddMoneyPopup ADD_MONEY_POPUP = new AddMoneyPopup();
+	public static final EditAccountPopup EDIT_ACCOUNT_POPUP = new EditAccountPopup();
 
-	public static void refreshPages(){
+    public static void refreshPages(){
 		Arrays.stream(Pages.class.getFields())
 				.map(x-> Exceptions.wrap().get(()->x.get(null)))
 				.forEach(x-> PageFactory.initElements(HTMLElement.getDecorator(Driver.getDriver()),x));

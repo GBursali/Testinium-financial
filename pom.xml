@@ -67,6 +67,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>de.sven-jacobs</groupId>
+            <artifactId>loremipsum</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
