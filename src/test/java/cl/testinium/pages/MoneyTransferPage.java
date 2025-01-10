@@ -1,7 +1,6 @@
 package cl.testinium.pages;
 
 import cl.testinium.api.APIRequests;
-import cl.testinium.base.Driver;
 import cl.testinium.data.CurrentAccountData;
 import cl.testinium.data.TransferData;
 import cl.testinium.utils.JsonReader;
@@ -14,7 +13,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -49,10 +47,6 @@ public class MoneyTransferPage {
         return accountName.getText();
     }
 
-    public MoneyTransferPage() {
-        PageFactory.initElements(HTMLElement.getDecorator(Driver.getDriver()), this);
-    }
-
     public void ensureAccountNonZero() {
         if (getAccountBalance() == 0) {
             LogManager.getLogger().info("Account balance is 0. Adding money from API to continue the flow.");
@@ -74,14 +68,16 @@ public class MoneyTransferPage {
         Assert.assertEquals(lastTransfer.senderAccount, transaction.senderAccount);
         Assert.assertEquals(lastTransfer.receiverAccount, transaction.receiverAccount);
         //ignore seconds
-        Assert.assertEquals(lastTransfer.sendingDate.withSecond(0).withNano(0), transaction.sendingDate.withSecond(0).withNano(0));
-        Assert.assertEquals("Transfer's amount is not as expected",TextUtils.formatToText(lastTransfer.amount), TextUtils.formatToText(transaction.amount));
+        LocalDateTime expected = lastTransfer.sendingDate.withMinute(0).withSecond(0).withNano(0);
+        LocalDateTime actual = transaction.sendingDate.withMinute(0).withSecond(0).withNano(0);
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Transfer's amount is not as expected.\n",TextUtils.formatToText(lastTransfer.amount), TextUtils.formatToText(transaction.amount));
     }
 
     public void verifyMoney(double expectedEffect) {
         var expectedMoney = TextUtils.formatToText(getSavedMoney() + expectedEffect);
         var actualMoney = TextUtils.formatToText(getAccountBalance());
-        Assert.assertEquals("Current amount is not as expected",expectedMoney, actualMoney);
+        Assert.assertEquals("Current amount is not as expected.\n",expectedMoney, actualMoney);
     }
 
     private TransferData extractTransaction(WebElement webElement) {

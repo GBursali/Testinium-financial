@@ -1,6 +1,5 @@
 package cl.testinium.pages;
 
-import cl.testinium.base.Driver;
 import cl.testinium.data.CardData;
 import cl.testinium.utils.JsonReader;
 import cl.testinium.utils.PopupUtils;
@@ -10,7 +9,6 @@ import com.gbursali.forms.IPopupForm;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -36,10 +34,6 @@ public class AddMoneyPopup implements IPopupForm<AddMoneyPopup> {
     public HTMLElement addButton;
     @FindBy(xpath = "//div[text()='Add money']/following-sibling::div")
     public HTMLElement cancelButton;
-
-    public AddMoneyPopup() {
-        PageFactory.initElements(HTMLElement.getDecorator(Driver.getDriver()), this);
-    }
 
     public void fillForm(CardData data) {
         cardNumber.waitFor.existence().sendKeys(data.cardNumber);
