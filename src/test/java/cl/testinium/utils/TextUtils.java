@@ -1,11 +1,16 @@
 package cl.testinium.utils;
 
+import com.gbursali.strings.Placeholders;
 import com.machinezoo.noexception.Exceptions;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-public class NumberUtils {
+public class TextUtils {
+
+    public static Placeholders commonPlaceholders = Placeholders.of()
+            .definePrefix("<")
+            .defineSuffix(">");
 
     public static double convertToDouble(String value){
         return Exceptions

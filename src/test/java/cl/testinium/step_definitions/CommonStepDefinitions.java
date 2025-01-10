@@ -14,7 +14,7 @@ public class CommonStepDefinitions {
 
     @When("I click on the Transfer Money button")
     public void iClickOnTheButton() {
-        Pages.Popups.MONEY_TRANSFER_POPUP.openPopup();
+        Pages.MONEY_TRANSFER_POPUP.openPopup();
     }
 
     @Given("save/update the current account details")

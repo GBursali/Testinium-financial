@@ -11,14 +11,14 @@ Feature: Transfer money to another account
   Scenario: User sends money to another account
     * save the current account details
     And I make the following transfer:
-      | senderAccount | receiverAccount | amount |
-      | Initial acc   | Testinium-2     | 3000   |
+      | senderAccount  | receiverAccount | amount |
+      | <Account Name> | Testinium-2     | 3000   |
     Then I verify the transaction is completed
 
   @send_money @try_big_amounts
   Scenario: User sends money to another account
     * save the current account details
     And I make the following transfer:
-      | senderAccount | receiverAccount | amount      |
-      | Initial acc   | Testinium-2     | 99999999999 |
+      | senderAccount  | receiverAccount | amount      |
+      | <Account Name> | Testinium-2     | 99999999999 |
     Then I verify the transaction is completed

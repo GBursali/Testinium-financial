@@ -21,7 +21,7 @@ public class TransferStepDefinitions {
 				.map(TransferData::fromMap)
 				.findFirst()
 				.orElseThrow(()->new IllegalArgumentException(JsonReader.getExceptionMessage("Cucumber table is not populated")));
-		Pages.Popups.MONEY_TRANSFER_POPUP.fillTheForm(input);
+		Pages.MONEY_TRANSFER_POPUP.fillTheForm(input);
 	}
 
 	@Then("I verify the transaction is completed")

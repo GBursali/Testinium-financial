@@ -3,6 +3,7 @@ package cl.testinium.pages;
 import cl.testinium.base.Driver;
 import cl.testinium.base.Pages;
 import cl.testinium.data.TransferData;
+import cl.testinium.utils.TextUtils;
 import cl.testinium.utils.elements.Select;
 import com.gbursali.elements.HTMLElement;
 import com.gbursali.elements.Textbox;
@@ -38,7 +39,7 @@ public class TransferMoneyPopup implements IPopupForm<TransferMoneyPopup> {
 	public void fillTheForm(TransferData transferData) {
 		this.senderAccount.select(transferData.senderAccount);
 		this.receiverAccount.select(transferData.receiverAccount);
-		this.amount.sendKeys(String.valueOf(transferData.amount));
+		this.amount.sendKeys(TextUtils.formatToText(transferData.amount));
 		this.sendButton.click();
 		Awaitility.await().pollDelay(Duration.ofSeconds(3)).until(()->true);
 		transferData.sendingDate = LocalDateTime.now();

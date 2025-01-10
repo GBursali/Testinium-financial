@@ -18,9 +18,6 @@ Feature: Add money to the account
   Scenario: Add money to the account with invalid values
     * save the current account details
     Given I click on the Add money
-    #Something went wrong lol
-    When I write "1234123412341234123123" to the "Card number" field in the Add Money popup
-    Then i should have "Too Long!" error on the "Card number" field
     When I write "sho" to the "Card holder" field in the Add Money popup
     Then i should have "Too Short!" error on the "Card holder" field
     #Past date?
@@ -28,4 +25,7 @@ Feature: Add money to the account
 #    Then i should have "Wrong date. Please give a correct date" error on the "Expiry date" field
     When I write "0" to the "CVV" field in the Add Money popup
     Then i should have "Too short" error on the "CVV" field
+    #Something went wrong lol
+    When I write "1234123412341234123123" to the "Card number" field in the Add Money popup
+    Then i should have "Too Long!" error on the "Card number" field
     And I close the Add Money popup

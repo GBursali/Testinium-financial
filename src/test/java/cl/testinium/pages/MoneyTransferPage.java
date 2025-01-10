@@ -5,7 +5,7 @@ import cl.testinium.base.Driver;
 import cl.testinium.data.CurrentAccountData;
 import cl.testinium.data.TransferData;
 import cl.testinium.utils.JsonReader;
-import cl.testinium.utils.NumberUtils;
+import cl.testinium.utils.TextUtils;
 import com.gbursali.data.DataManager;
 import com.gbursali.elements.HTMLElement;
 import org.apache.logging.log4j.LogManager;
@@ -42,7 +42,7 @@ public class MoneyTransferPage {
     }
 
     public double getAccountBalance() {
-        return NumberUtils.convertToDouble(accountBalance.waitFor.existence().getText());
+        return TextUtils.convertToDouble(accountBalance.waitFor.existence().getText());
     }
 
     public String getAccountName() {
@@ -79,8 +79,8 @@ public class MoneyTransferPage {
     }
 
     public void verifyMoney(double expectedEffect) {
-        var expectedMoney = NumberUtils.formatToText(getSavedMoney() + expectedEffect);
-        var actualMoney = NumberUtils.formatToText(getAccountBalance());
+        var expectedMoney = TextUtils.formatToText(getSavedMoney() + expectedEffect);
+        var actualMoney = TextUtils.formatToText(getAccountBalance());
         Assert.assertEquals(expectedMoney, actualMoney);
     }
 
@@ -94,7 +94,7 @@ public class MoneyTransferPage {
             senderAccount = senderElement.getText();
             receiverAccount = receiverElement.getText();
             sendingDate = LocalDateTime.parse(timeElement.getText(), TRANSACTION_DATETIME_FORMATTER);
-            amount = NumberUtils.convertToDouble(dateElement.getText());
+            amount = TextUtils.convertToDouble(dateElement.getText());
         }};
     }
 }

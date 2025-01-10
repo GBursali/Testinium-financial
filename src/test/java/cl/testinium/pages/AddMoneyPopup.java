@@ -87,7 +87,8 @@ public class AddMoneyPopup implements IPopupForm<AddMoneyPopup> {
 
         inputFinder.apply(fieldName)
                 .orElseThrow(()->new IllegalStateException(JsonReader.getExceptionMessage("Element not found")))
-                .waitFor.clickability()
+                .waitFor
+                .clickability()
                 .sendKeys(value);
 
         labelFinder.apply(fieldName)
