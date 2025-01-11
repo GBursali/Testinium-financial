@@ -100,29 +100,6 @@ public class Driver {
     private static void configureChromeOptions(ChromeOptions options) {
         final Map<String, Object> prefs = new HashMap<>();
 
-		prefs.put("safebrowsing.enabled", "false"); // Bypass warning message, keep file anyway (for .exe, .jar, etc.)
-		prefs.put("profile.default_content_settings_.popups",0);
-		prefs.put("download.prompt_for_download", "false");
-		prefs.put("profile.default_content_settings.popups", 0);
-//		options.setCapability(CapabilityType.UNHANDLED_PROMPT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
-		options.addArguments("--safebrowsing-disable-extension-blacklist");
-		options.addArguments("--safebrowsing-disable-download-protection");
-		options.addArguments("--start-maximized");
-		options.addArguments("enable-automation");
-		options.addArguments("--disable-crash-reporter");
-		options.addArguments("--disable-client-side-phishing-detection");
-		options.addArguments("--disable-extensions");
-		options.addArguments("--allow-running-insecure-content");
-		options.setExperimentalOption("prefs", prefs);
-	}
-        prefs.put("safebrowsing.enabled", "false"); // Bypass warning message, keep file anyway (for .exe, .jar, etc.)
-        prefs.put("profile.default_content_settings_.popups", 0);
-        prefs.put("download.prompt_for_download", "false");
-        prefs.put("profile.default_content_settings.popups", 0);
-        prefs.put("safebrowsing.enabled", "false"); // Bypass warning message, keep file anyway (for .exe, .jar, etc.)
-        prefs.put("profile.default_content_settings_.popups", 0);
-        prefs.put("download.prompt_for_download", "false");
-        prefs.put("profile.default_content_settings.popups", 0);
         prefs.put("safebrowsing.enabled", "false"); // Bypass warning message, keep file anyway (for .exe, .jar, etc.)
         prefs.put("profile.default_content_settings_.popups", 0);
         prefs.put("download.prompt_for_download", "false");
