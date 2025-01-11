@@ -123,6 +123,10 @@ public class Driver {
         prefs.put("profile.default_content_settings_.popups", 0);
         prefs.put("download.prompt_for_download", "false");
         prefs.put("profile.default_content_settings.popups", 0);
+        prefs.put("safebrowsing.enabled", "false"); // Bypass warning message, keep file anyway (for .exe, .jar, etc.)
+        prefs.put("profile.default_content_settings_.popups", 0);
+        prefs.put("download.prompt_for_download", "false");
+        prefs.put("profile.default_content_settings.popups", 0);
         options.addArguments("--safebrowsing-disable-extension-blacklist");
         options.addArguments("--safebrowsing-disable-download-protection");
         options.addArguments("--start-maximized");
