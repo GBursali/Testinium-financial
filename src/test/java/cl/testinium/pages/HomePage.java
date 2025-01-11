@@ -13,6 +13,8 @@ public class HomePage {
 
     @FindBy(xpath = "//div[./div[text()='Open Money Transfer']]")
     public HTMLElement openMoneyTransfer;
+    @FindBy(xpath = "//div[text()='Logout']")
+    public HTMLElement logout;
 
     public void openMoneyTransferPage() {
         openMoneyTransfer.waitFor.clickability().click();
@@ -34,5 +36,9 @@ public class HomePage {
 
     public void verifyHomePage() {
         openMoneyTransfer.waitFor.clickability();
+    }
+
+    public void logout(){
+        logout.waitFor.clickability().click();
     }
 }
