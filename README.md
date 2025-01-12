@@ -52,7 +52,7 @@ Usage Guidelines
          ``mvn -P Cukes clean verify``
    3. If you don't want to receive a report on the results, use:
    
-         ``mvn -P Full clean verify``
+         ``mvn -P Full clean test``
 2. Test Reports:
    1. After the tests are executed, a report will be generated in the ``target/cucumber-html-reports`` directory.
    2. To view the report, open the `overview-features.html` file in your web browser.
